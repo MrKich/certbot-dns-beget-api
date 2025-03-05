@@ -6,20 +6,22 @@
 
 ```ini
 # Beget API token used by Certbot
-beget_plugin_username = username
-beget_plugin_password = password 
+dns_beget_api_username = username
+dns_beget_api_password = password 
 ```
 
 ## Examples
 
 ```bash
-certbot certonly --authenticator beget-plugin \
-    --beget-plugin-credentials ~/.secrets/certbot/beget.ini \
+certbot certonly --authenticator dns-beget-api \
+    --dns-beget-api-credentials ~/.secrets/certbot/beget.ini \
+    --dns-beget-api-propagation-seconds 120 \
     -d domain.com -d *.domain.com
 ```
 
 ```bash
-certbot certonly --authenticator beget-plugin \
-    --beget-plugin-credentials ~/.secrets/certbot/beget.ini \
+certbot certonly --authenticator dns-beget-api \
+    --dns-beget-api-credentials ~/.secrets/certbot/beget.ini \
+    --dns-beget-api-propagation-seconds 120 \
     -d xxx.yyy.domain.com -d *.yyy.domain.com
 ```

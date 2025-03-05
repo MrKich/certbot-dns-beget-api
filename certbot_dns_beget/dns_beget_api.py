@@ -50,7 +50,7 @@ class Authenticator(dns_common.DNSAuthenticator):
         password = credentials.conf('password')
 
         if not username or not password:
-            raise errors.PluginError('It is necessary to set a beget_plugin_username and beget_plugin_password to access the Beget API')
+            raise errors.PluginError('It is necessary to set a dns_beget_api_username and dns_beget_api_password to access the Beget API')
 
     def _setup_credentials(self) -> None:
         self.credentials = self._configure_credentials(
