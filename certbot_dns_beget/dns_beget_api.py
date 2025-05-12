@@ -12,14 +12,16 @@ from certbot import errors
 from certbot.plugins import dns_common
 from certbot.plugins.dns_common import CredentialsConfiguration
 
-from certbot import errors
+from certbot import errors, interfaces
 
 import requests
+import zope.interface
 
 logger = logging.getLogger(__name__)
 
 BASE_API_URL = 'https://api.beget.com/api'
 
+@zope.interface.provider(interfaces.IPluginFactory)
 class Authenticator(dns_common.DNSAuthenticator):
     """DNS Authenticator for Beget
 
